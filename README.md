@@ -11,8 +11,27 @@ Following these instructions: https://docs.vtk.org/en/latest/getting_started/ind
 
 ## Run
 
-- Run script
-  - `python CylinderExample.py`
+Cylinder example from: https://examples.vtk.org/site/Python/GeometricObjects/CylinderExample/
+```bash
+$ python CylinderExample.py
+```
+
+Test what happens when you call zoom before and after ResetCamera.
+
+The first 4 work as camera.Zoom(z) is invoked after ResetCamera.
+The next four fail because the ResetCamera resets zoom to 1.0,
+thus the zoom angle is always 30 degrees.
+```bash
+$ python vtk-zoom-before-reset-fails.py 
+works  z=1.50   eva=20.00  va=20.00 
+works  z=0.75   eva=40.00  va=40.00 
+works  z=0.25   eva=120.00 va=120.00
+works  z=0.50   eva=60.00  va=60.00 
+fails  z=1.50   eva=20.00  va=30.00 
+fails  z=0.75   eva=40.00  va=30.00 
+fails  z=0.25   eva=120.00 va=30.00 
+fails  z=0.50   eva=60.00  va=30.00 
+```
 
 ## License
 
